@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CodingTest</string>
+    <string name="inactive">Inactive</string>
+    <string name="status_active">Online Booking Enabled</string>
+</resources>
