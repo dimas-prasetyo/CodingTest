@@ -1,15 +1,21 @@
 package com.dimasbintang.codingtest.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
+
 
 @Dao
 interface LokasiDao {
-    @Insert
-    fun insertLokasi(lokasi: Lokasi)
 
-    @Delete()
-    fun delete(lokasi: Lokasi)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertLokasi(lokasi: Lokasi)
 
-    @Query("SELECT * from lokasi ORDER BY id ASC")
-    fun getAll(): List<Lokasi>
+    @Delete
+    suspend fun delete(lokasi: Lokasi)
+
+    @Update
+    suspend fun update(lokasi: Lokasi)
+
+    @Query("SELECT * from lokasiTable order BY id ASC")
+    fun getAll(): LiveData<List<Lokasi>>
 }

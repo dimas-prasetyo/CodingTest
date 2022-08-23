@@ -1,7 +1,8 @@
-package com.dimasbintang.codingtest
+package com.dimasbintang.codingtest.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dimasbintang.codingtest.R
 
 class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
