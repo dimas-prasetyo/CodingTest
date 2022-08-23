@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dimasbintang.codingtest.data.Lokasi
+import com.dimasbintang.codingtest.detail.DetailActivity
 import com.dimasbintang.codingtest.detail.TempDetailActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -35,17 +36,18 @@ class HomeActivity : AppCompatActivity(), LokasiClickInterface {
         })
 
         btn_add_lokasi.setOnClickListener {
-            val intent = Intent(this, TempDetailActivity::class.java)
+            val intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
             this.finish()
         }
     }
 
     override fun onLokasiClick(lokasi: Lokasi) {
-        val intent = Intent(this, TempDetailActivity::class.java)
+        val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra("inputType", "edit")
         intent.putExtra("lokasiId", lokasi.id.toString())
         intent.putExtra("lokasiName", lokasi.name)
+        intent.putExtra("lokasiStatus", lokasi.status.toString())
         intent.putExtra("lokasiLat", lokasi.latitude)
         intent.putExtra("lokasiLong", lokasi.longtitude)
         startActivity(intent)

@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dimasbintang.codingtest.data.Lokasi
@@ -15,6 +16,7 @@ class LokasiRecyclerViewAdapter(val context: Context, val lokasiClickInterface: 
         val lokasiName = itemView.findViewById<TextView>(R.id.txt_name)
         val lokasiStatus = itemView.findViewById<TextView>(R.id.txt_status)
         val textInactive = itemView.findViewById<TextView>(R.id.txt_inactive)
+        val bgLayout = itemView.findViewById<RelativeLayout>(R.id.bg_layout)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,6 +37,15 @@ class LokasiRecyclerViewAdapter(val context: Context, val lokasiClickInterface: 
 
         holder.itemView.setOnClickListener {
             lokasiClickInterface.onLokasiClick(allLokasi.get(position))
+        }
+
+        if(position % 2 == 0)
+        {
+            holder.bgLayout.setBackgroundResource(R.color.white);
+        }
+        else
+        {
+            holder.bgLayout.setBackgroundResource(R.color.light_gray);
         }
     }
 

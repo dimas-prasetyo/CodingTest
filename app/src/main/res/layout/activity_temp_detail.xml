@@ -72,6 +72,7 @@
                         android:text="Inactive"
                         android:background="@color/light_gray"
                         android:gravity="center"
+                        android:textColor="@color/gray"
                         android:textSize="16sp"/>
 
                 </LinearLayout>
@@ -132,6 +133,7 @@
                 android:text="Map" />
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_btn_edit"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 app:cardCornerRadius="5dp"
