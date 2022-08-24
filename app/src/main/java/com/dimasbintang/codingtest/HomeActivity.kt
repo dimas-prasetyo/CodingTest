@@ -1,15 +1,17 @@
 package com.dimasbintang.codingtest
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dimasbintang.codingtest.data.Lokasi
 import com.dimasbintang.codingtest.detail.DetailActivity
 import kotlinx.android.synthetic.main.activity_home.*
+
 
 class HomeActivity : AppCompatActivity(), LokasiClickInterface {
     lateinit var viewModel: LokasiViewModel

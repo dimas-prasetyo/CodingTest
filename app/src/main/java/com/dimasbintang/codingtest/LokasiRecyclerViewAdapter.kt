@@ -12,6 +12,7 @@ import com.dimasbintang.codingtest.data.Lokasi
 class LokasiRecyclerViewAdapter(val context: Context, val lokasiClickInterface: LokasiClickInterface): RecyclerView.Adapter<LokasiRecyclerViewAdapter.ViewHolder>() {
 
     private val allLokasi = ArrayList<Lokasi>()
+
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val lokasiName = itemView.findViewById<TextView>(R.id.txt_name)
         val lokasiStatus = itemView.findViewById<TextView>(R.id.txt_status)
@@ -39,14 +40,12 @@ class LokasiRecyclerViewAdapter(val context: Context, val lokasiClickInterface: 
             lokasiClickInterface.onLokasiClick(allLokasi.get(position))
         }
 
-        if(position % 2 == 0)
-        {
+        if(position % 2 == 0) {
             holder.bgLayout.setBackgroundResource(R.color.white);
-        }
-        else
-        {
+        } else {
             holder.bgLayout.setBackgroundResource(R.color.light_gray);
         }
+
     }
 
     override fun getItemCount(): Int {

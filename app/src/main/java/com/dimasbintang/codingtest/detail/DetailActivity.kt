@@ -78,12 +78,6 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
             if (inputType.equals("edit")){
                 if (input_name.input.equals("")){
                     input_name.setError()
-                } else if (input_address.input.equals("")){
-                    input_address.setError()
-                } else if (input_city.input.equals("")){
-                    input_city.setError()
-                } else if (input_zip_code.input.equals("")){
-                    input_zip_code.setError()
                 } else {
                     val updateLokasi = Lokasi(input_name.input, detailLokasi.latitude, detailLokasi.longtitude, input_address.input, input_city.input, input_zip_code.input, lokasiStatus)
                     updateLokasi.id = lokasiId
@@ -96,12 +90,6 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
             } else{
                 if (input_name.input.equals("")){
                     input_name.setError()
-                } else if (input_address.input.equals("")){
-                    input_address.setError()
-                } else if (input_city.input.equals("")){
-                    input_city.setError()
-                } else if (input_zip_code.input.equals("")){
-                    input_zip_code.setError()
                 } else {
                     listLokasiViewModel.addLokasi(Lokasi(input_name.input, detailLokasi.latitude, detailLokasi.longtitude,  input_address.input, input_city.input, input_zip_code.input, lokasiStatus))
 
@@ -134,6 +122,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
         txt_inactive.setOnClickListener {
             inputStatusIsInactive()
         }
+
     }
 
     private fun fetchLocation() {
@@ -208,4 +197,6 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
         startActivity(Intent(applicationContext, HomeActivity::class.java))
         this.finish()
     }
+
+
 }
