@@ -14,13 +14,22 @@
         android:theme="@style/Theme.CodingTest"
         tools:targetApi="31">
         <activity
-            android:name=".detail.TempDetailActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustNothing"  />
+            android:name=".TempMapsActivity"
+            android:exported="false" >
+                <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/maps_api_key" />
+        </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/maps_api_key" />
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <activity
             android:name=".detail.DetailActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustNothing"/>
+            android:windowSoftInputMode="adjustNothing">
+        </activity>
         <activity
             android:name=".HomeActivity"
             android:exported="true"
@@ -32,12 +41,9 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <uses-feature android:name="android.hardware.location.network" android:required="false" />
-    <uses-feature android:name="android.hardware.location.gps" android:required="false"  />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

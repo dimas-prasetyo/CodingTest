@@ -3,13 +3,11 @@ package com.dimasbintang.codingtest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dimasbintang.codingtest.data.Lokasi
 import com.dimasbintang.codingtest.detail.DetailActivity
-import com.dimasbintang.codingtest.detail.TempDetailActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), LokasiClickInterface {
@@ -39,6 +37,11 @@ class HomeActivity : AppCompatActivity(), LokasiClickInterface {
             val intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
             this.finish()
+        }
+
+        category_all.setOnClickListener {
+            val intent = Intent(this, TempMapsActivity::class.java)
+            startActivity(intent)
         }
     }
 

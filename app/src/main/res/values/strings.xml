@@ -2,8 +2,8 @@
     <string name="app_name">CodingTest</string>
     <string name="inactive">Inactive</string>
     <string name="status_active">Online Booking Enabled</string>
-    <string name="maps_api_key">AIzaSyD6rKZ62vZhKJ1bhJWz1NRCV09ifEaetbI</string>
     <string name="test_title">Title</string>
     <string name="test_hint">Hint Text</string>
     <string name="main_label">Company &amp; Locations</string>
+    <string name="maps_api_key">AIzaSyDW9-LKFKGb8q6FbQL2Db7CY9sQVt-DGcQ</string>
 </resources>

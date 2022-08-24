@@ -119,6 +119,17 @@
                 android:layout_marginTop="10dp"
                 android:text="Map" />
 
+            <!--<fragment
+                android:id="@+id/map"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                tools:context=".detail.DetailActivity"
+                android:layout_below="@id/txt_map"
+                android:layout_margin="10dp"
+                android:name="com.google.android.gms.maps.SupportMapFragment" />-->
+
             <com.dimasbintang.codingtest.compoundView.MyEditText
                 android:id="@+id/input_address"
                 android:layout_width="match_parent"

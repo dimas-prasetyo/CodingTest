@@ -1,15 +1,19 @@
 package com.dimasbintang.codingtest.detail
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.location.Address
+import android.location.Geocoder
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.dimasbintang.codingtest.HomeActivity
 import com.dimasbintang.codingtest.LokasiViewModel
 import com.dimasbintang.codingtest.R
 import com.dimasbintang.codingtest.data.Lokasi
 import kotlinx.android.synthetic.main.activity_detail.*
+import java.util.*
+
 
 class DetailActivity : AppCompatActivity() {
     lateinit var listLokasiViewModel: LokasiViewModel
@@ -49,10 +53,11 @@ class DetailActivity : AppCompatActivity() {
         } else {
             cv_btn_delete.visibility = View.GONE
             txt_title.setText("Add Location")
+
+            getLocationDetail(-7.690459, 110.413717)
         }
 
         btn_save.setOnClickListener {
-            println("Tes input tipe: " + inputType)
             if (inputType.equals("edit")){
                 if (input_name.input.equals("")){
                     input_name.setError()
@@ -63,9 +68,9 @@ class DetailActivity : AppCompatActivity() {
                 } else if (input_zip_code.input.equals("")){
                     input_zip_code.setError()
                 } else {
-                    val updateLokasi = Lokasi(input_name.input, "", "", input_address.input, input_city.input, input_zip_code.input, lokasiStatus)
+                    val updateLokasi = Lokasi(input_name.input, latitudeLoc, longtitudeLoc, input_address.input, input_city.input, input_zip_code.input, lokasiStatus)
                     updateLokasi.id = lokasiId
-                    println("lokasi update: " + updateLokasi)
+
                     listLokasiViewModel.updateLokasi(updateLokasi)
 
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
@@ -81,7 +86,7 @@ class DetailActivity : AppCompatActivity() {
                 } else if (input_zip_code.input.equals("")){
                     input_zip_code.setError()
                 } else {
-                    listLokasiViewModel.addLokasi(Lokasi(input_name.input, "", "",  input_address.input, input_city.input, input_zip_code.input, lokasiStatus))
+                    listLokasiViewModel.addLokasi(Lokasi(input_name.input, latitudeLoc, longtitudeLoc,  input_address.input, input_city.input, input_zip_code.input, lokasiStatus))
 
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
                     this.finish()
@@ -114,6 +119,24 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    private fun getLocationDetail(latitude: Double, longtitude: Double) {
+        val geocoder: Geocoder
+        val addresses: List<Address>
+        geocoder = Geocoder(this, Locale.getDefault())
+
+        addresses = geocoder.getFromLocation(latitude, longtitude, 1)
+        val tempAddress: String = addresses[0].getAddressLine(0)
+
+        val address = tempAddress.substring(tempAddress.indexOf(" ") + 1)
+        address.trim { it <= ' ' }
+        input_address.setText(address)
+
+        val city: String = addresses[0].getSubAdminArea()
+        input_city.setText(city)
+        val postalCode: String = addresses[0].getPostalCode()
+        input_zip_code.setText(postalCode)
+    }
+
     private fun inputStatusIsActive() {
         lokasiStatus = true
         txt_active.setBackgroundColor(getResources().getColor(R.color.blue_app))
@@ -132,7 +155,6 @@ class DetailActivity : AppCompatActivity() {
         txt_active.setTextColor(getResources().getColor(R.color.gray))
         txt_inactive.setTextColor(getResources().getColor(R.color.white))
     }
-
 
     override fun onBackPressed() {
         super.onBackPressed()

@@ -12,8 +12,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_list_lokasi"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             app:cardCornerRadius="10dp"
             android:layout_margin="8dp">
 
@@ -21,7 +21,8 @@
                 android:id="@+id/img_lokasi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@color/black"/>
+                android:src="@drawable/temp_photo"
+                android:scaleType="centerCrop"/>
 
         </com.google.android.material.card.MaterialCardView>
 
