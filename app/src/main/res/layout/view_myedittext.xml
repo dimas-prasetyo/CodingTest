@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
-    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
-    >
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <TextView
         android:id="@+id/myedittext_tv_title"
@@ -18,21 +17,12 @@
         android:labelFor="@+id/myedittext_et_input"
         tools:text="Title" />
 
-    <TextView
-        android:id="@+id/myedittext_tv_error"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/myedittext_barrierLabels"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="myedittext_tv_title,myedittext_tv_error" />
+        app:constraint_referenced_ids="myedittext_tv_title" />
 
     <EditText
         android:id="@+id/myedittext_et_input"

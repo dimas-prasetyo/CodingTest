@@ -22,6 +22,7 @@ class LokasiViewModel(application: Application): AndroidViewModel(application) {
         allLokasi = repository.allLokasi
         activeLokasi = repository.activeLokasi
         inActiveLokasi = repository.inactiveLokasi
+
     }
 
     fun deleteLokasi(lokasi: Lokasi) = viewModelScope.launch(Dispatchers.IO){
@@ -35,6 +36,5 @@ class LokasiViewModel(application: Application): AndroidViewModel(application) {
     fun addLokasi(lokasi: Lokasi) = viewModelScope.launch(Dispatchers.IO){
         repository.insert(lokasi)
     }
-
 
 }

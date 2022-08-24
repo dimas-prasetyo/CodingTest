@@ -24,15 +24,6 @@ class HomeActivity : AppCompatActivity(), LokasiClickInterface {
 
         rv_lokasi.layoutManager = LinearLayoutManager(this)
 
-        /*val lokasiListAdapter = LokasiRecyclerViewAdapter(this, this)
-        rv_lokasi.adapter = lokasiListAdapter
-
-        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(LokasiViewModel::class.java)
-        viewModel.allLokasi.observe(this, Observer { list ->
-            list?.let {
-                lokasiListAdapter.updateList(it)
-            }
-        })*/
         lokasiListAdapter = LokasiRecyclerViewAdapter(this, this)
         rv_lokasi.adapter = lokasiListAdapter
         viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(LokasiViewModel::class.java)
@@ -88,12 +79,6 @@ class HomeActivity : AppCompatActivity(), LokasiClickInterface {
 
     override fun onLokasiClick(lokasi: Lokasi) {
         val intent = Intent(this, DetailActivity::class.java)
-        /*intent.putExtra("inputType", "edit")
-        intent.putExtra("lokasiId", lokasi.id.toString())
-        intent.putExtra("lokasiName", lokasi.name)
-        intent.putExtra("lokasiStatus", lokasi.status.toString())
-        intent.putExtra("lokasiLat", lokasi.latitude)
-        intent.putExtra("lokasiLong", lokasi.longtitude)*/
         intent.putExtra("inputType", "edit")
         intent.putExtra("lokasiId", lokasi.id.toString())
         intent.putExtra("chosenLokasi", lokasi)
