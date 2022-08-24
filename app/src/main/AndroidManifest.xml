@@ -29,6 +29,9 @@
             android:name=".detail.DetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustNothing">
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/maps_api_key" />
         </activity>
         <activity
             android:name=".HomeActivity"

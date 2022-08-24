@@ -18,4 +18,7 @@ interface LokasiDao {
 
     @Query("SELECT * from lokasiTable order BY id ASC")
     fun getAll(): LiveData<List<Lokasi>>
+
+    @Query("SELECT * FROM lokasiTable WHERE status=:status")
+    fun getLokasiByStatus(status: Int): LiveData<List<Lokasi>>
 }

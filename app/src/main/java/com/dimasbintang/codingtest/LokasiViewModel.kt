@@ -12,12 +12,16 @@ import kotlinx.coroutines.launch
 
 class LokasiViewModel(application: Application): AndroidViewModel(application) {
     val allLokasi: LiveData<List<Lokasi>>
+    val activeLokasi: LiveData<List<Lokasi>>
+    val inActiveLokasi: LiveData<List<Lokasi>>
     val repository: LokasiRepository
 
     init {
         val dao = AppDatabase.getDatabase(application).lokasiDao()
         repository = LokasiRepository(dao)
         allLokasi = repository.allLokasi
+        activeLokasi = repository.activeLokasi
+        inActiveLokasi = repository.inactiveLokasi
     }
 
     fun deleteLokasi(lokasi: Lokasi) = viewModelScope.launch(Dispatchers.IO){
@@ -31,4 +35,6 @@ class LokasiViewModel(application: Application): AndroidViewModel(application) {
     fun addLokasi(lokasi: Lokasi) = viewModelScope.launch(Dispatchers.IO){
         repository.insert(lokasi)
     }
+
+
 }

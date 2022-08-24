@@ -119,22 +119,39 @@
                 android:layout_marginTop="10dp"
                 android:text="Map" />
 
-            <!--<fragment
+            <fragment
                 android:id="@+id/map"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                tools:context=".detail.DetailActivity"
+                android:layout_height="250dp"
                 android:layout_below="@id/txt_map"
                 android:layout_margin="10dp"
-                android:name="com.google.android.gms.maps.SupportMapFragment" />-->
+                tools:context=".detail.DetailActivity" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:cardCornerRadius="3dp"
+                android:layout_alignBottom="@id/map"
+                android:layout_alignRight="@id/map"
+                android:layout_margin="10dp"
+                android:alpha="0.7">
+
+                <ImageView
+                    android:id="@+id/btn_refresh_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_refresh_24"
+                    app:tint="@color/black"/>
+
+            </com.google.android.material.card.MaterialCardView>
 
             <com.dimasbintang.codingtest.compoundView.MyEditText
                 android:id="@+id/input_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txt_map"
+                android:layout_below="@id/map"
                 android:layout_marginBottom="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"

@@ -12,6 +12,8 @@
 
     <color name="blue_app">#2882F5</color>
     <color name="green_app">#00D79E</color>
+    <color name="green_soft">#BBEBDE</color>
+    <color name="green_darker">#05946E</color>
     <color name="secondary_color">#0A98AB</color>
     <color name="red_delete">#DC3737 </color>
 

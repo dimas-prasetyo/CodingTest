@@ -6,4 +6,5 @@
     <string name="test_hint">Hint Text</string>
     <string name="main_label">Company &amp; Locations</string>
     <string name="maps_api_key">AIzaSyDW9-LKFKGb8q6FbQL2Db7CY9sQVt-DGcQ</string>
+    <string name="status">Status</string>
 </resources>
